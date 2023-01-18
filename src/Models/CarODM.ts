@@ -37,16 +37,13 @@ class CarODM {
     return this.model.findById(id).exec();
   }
 
-  /* public async update(id: string, obj: Partial<ICar>):
-  Promise<ICar | null> {
-    if (!isValidObjectId(id)) throw Error('Invalid Mongo id');
-    
-    return this.model.findByIdAndUpdate(
-      { _id: id },
-      { ...obj } as UpdateQuery<ICar>,
-      { new: true },
-    );    
-  } */
+  public async update(id: string, newCar: ICar) {
+    return this.model.updateOne({ _id: id }, { ...newCar });
+  }
+
+  public async delete(id: string) {
+    return this.model.deleteOne({ _id: id });
+  }
 }
 
 export default CarODM;

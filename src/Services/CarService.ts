@@ -45,6 +45,20 @@ class CarService {
       doorsQty: car.doorsQty,
       seatsQty: car.seatsQty };
   }
+
+  public async update(id: string, newCar: ICar) {
+    const carODM = new CarODM();
+    const car = await carODM.update(id, newCar);
+    if (!car) return null;
+    return { ...newCar, id };
+  }
+
+  public async delete(id: string) {
+    const carODM = new CarODM();
+    const car = await carODM.delete(id);
+    if (!car) return null;
+    return true;
+  }
 }
 
 export default CarService;
