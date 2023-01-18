@@ -45,6 +45,13 @@ class MotorcycleService {
       engineCapacity: moto.engineCapacity,
       category: moto.category };
   }
+
+  public async update(id: string, newMoto: IMoto) {
+    const motoODM = new MotorcycleODM();
+    const moto = await motoODM.update(id, newMoto);
+    if (!moto) return null;
+    return { ...newMoto, id };
+  }
 }
 
 export default MotorcycleService;
