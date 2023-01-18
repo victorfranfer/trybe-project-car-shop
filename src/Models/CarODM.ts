@@ -34,7 +34,7 @@ class CarODM {
   }
 
   public async getById(id: string) {
-    return this.model.findById(id).exec();
+    return this.model.findById(id);
   }
 
   public async update(id: string, newCar: ICar) {

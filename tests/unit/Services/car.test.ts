@@ -132,7 +132,7 @@ describe('Verifica a rota de carros', function () {
   describe('Atualizar um carro', function () {
     it('com SUCESSO', async function () {
       const input = {
-        model: 'Maria',
+        model: 'Marea',
         year: 2002,
         color: 'Black',
         status: true,
