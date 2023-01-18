@@ -17,6 +17,34 @@ class CarService {
       seatsQty: newCar.seatsQty,
     });
   }
+
+  public async getAll() {
+    const carODM = new CarODM();
+    const cars = await carODM.getAll();
+    return cars.map((car) => ({ id: car._id,
+      model: car.model,
+      year: car.year,
+      color: car.color,
+      status: car.status,
+      buyValue: car.buyValue,
+      doorsQty: car.doorsQty,
+      seatsQty: car.seatsQty }));
+  }
+
+  public async getById(id: string) {
+    const carODM = new CarODM();
+    const car = await carODM.getById(id);
+    if (!car) return null;
+    return {
+      id: car._id,
+      model: car.model,
+      year: car.year,
+      color: car.color,
+      status: car.status,
+      buyValue: car.buyValue,
+      doorsQty: car.doorsQty,
+      seatsQty: car.seatsQty };
+  }
 }
 
 export default CarService;

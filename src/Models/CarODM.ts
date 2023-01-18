@@ -29,6 +29,14 @@ class CarODM {
     return this.model.create({ ...car });
   }
 
+  public async getAll() {
+    return this.model.find();
+  }
+
+  public async getById(id: string) {
+    return this.model.findById(id).exec();
+  }
+
   /* public async update(id: string, obj: Partial<ICar>):
   Promise<ICar | null> {
     if (!isValidObjectId(id)) throw Error('Invalid Mongo id');
