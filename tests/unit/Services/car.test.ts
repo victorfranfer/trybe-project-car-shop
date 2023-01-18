@@ -90,7 +90,7 @@ describe('Verifica a rota de carros', function () {
     });
   });
   describe('Lista um carro por id', function () {
-    it('com SUUCESSO', async function () {
+    it('com SUCCESSO', async function () {
       const modelOutput = {
         _id: '634852326b35b59438fbea2f',
         model: 'Marea',

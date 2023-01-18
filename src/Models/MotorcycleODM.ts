@@ -22,11 +22,19 @@ class MotorcycleODM {
       category: { type: String, required: true },
       engineCapacity: { type: Number, required: true },
     });
-    this.model = models.Car || model('Car', this.schema);
+    this.model = models.Motorcycle || model('Motorcycle', this.schema);
   }
 
   public async create(car: IMoto): Promise<IMoto> {
     return this.model.create({ ...car });
+  }
+
+  public async getAll() {
+    return this.model.find();
+  }
+
+  public async getById(id: string) {
+    return this.model.findById(id).exec();
   }
 }
 
